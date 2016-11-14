@@ -7,7 +7,7 @@ module.exports = yeoman.Base.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the solid ' + chalk.red('generator-tw-micro') + ' generator!'
+      'Welcome to the Taskworld microservice generator!'
     ))
 
     var prompts = [{
