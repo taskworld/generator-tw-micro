@@ -15,4 +15,20 @@ describe('generator-tw-micro:app', function () {
       'dummyfile.txt'
     ])
   })
+
+  it('create babelrc, eslintrc, gitignore, package, readme', () => {
+    assert.file([
+      '.babelrc',
+      '.eslintrc.yml',
+      '.gitignore',
+      'package.json',
+      'README.md',
+    ])
+  })
+
+  it('copy src directory', () => {
+    assert.file([
+      'src/helloworld.js'
+    ])
+  })
 })

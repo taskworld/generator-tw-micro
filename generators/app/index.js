@@ -1,7 +1,13 @@
 'use strict'
-var yeoman = require('yeoman-generator')
-var chalk = require('chalk')
-var yosay = require('yosay')
+const yeoman = require('yeoman-generator')
+const yosay = require('yosay')
+
+const copyFile = (yeoman, file) => {
+  yeoman.fs.copy(
+    yeoman.templatePath(file),
+    yeoman.destinationPath(file)
+  )
+}
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
@@ -10,7 +16,7 @@ module.exports = yeoman.Base.extend({
       'Welcome to the Taskworld microservice generator!'
     ))
 
-    var prompts = [{
+    const prompts = [{
       type: 'confirm',
       name: 'someAnswer',
       message: 'Would you like to enable this option?',
@@ -24,10 +30,13 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    )
+    copyFile(this, 'dummyfile.txt')
+    copyFile(this, '.babelrc')
+    copyFile(this, '.eslintrc.yml')
+    copyFile(this, '.gitignore')
+    copyFile(this, 'package.json')
+    copyFile(this, 'README.md')
+    this.directory('src', 'src')
   },
 
   install: function () {
