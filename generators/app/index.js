@@ -48,7 +48,6 @@ module.exports = yeoman.Base.extend({
     copyFile(this, '.babelrc')
     copyFile(this, '.eslintrc.yml')
     copyFile(this, '.gitignore')
-    copyFile(this, 'package.json')
     copyFile(this, 'README.md')
     copyFileTpl(this, 'package.json', {
       serviceName: this.props.serviceName,
